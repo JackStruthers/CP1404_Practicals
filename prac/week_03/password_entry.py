@@ -2,8 +2,13 @@ def main():
 
     min_length = 4
     user_password = get_password(min_length)
-    encrypted_password = len(user_password) * "*"
+    encrypted_password = encrypt_password(user_password)
     print(encrypted_password)
+
+
+def encrypt_password(user_password):
+    encrypted_password = len(user_password) * "*"
+    return encrypted_password
 
 
 def get_password(min_length):
