@@ -1,7 +1,9 @@
+MIN_LENGTH = 4
+
+
 def main():
 
-    min_length = 4
-    user_password = get_password(min_length)
+    user_password = get_password()
     encrypted_password = encrypt_password(user_password)
     print(encrypted_password)
 
@@ -11,9 +13,9 @@ def encrypt_password(user_password):
     return encrypted_password
 
 
-def get_password(min_length):
+def get_password():
     user_password = input("Please enter your password: ")
-    while len(user_password) < min_length:
+    while len(user_password) < MIN_LENGTH:
         print("Please enter a password that is at least 4 characters")
         user_password = input("Please enter your password: ")
     return user_password
