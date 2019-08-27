@@ -11,9 +11,7 @@ def find_oldest_person(names, ages):
         if ages[i] > ages[i - 1]:
             oldest_position = i
 
-    oldest_person = names[oldest_position]
-
-    return oldest_person
+    return names[oldest_position]
 
 
 main()
