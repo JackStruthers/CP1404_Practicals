@@ -12,4 +12,5 @@ for i in range(number_of_picks):
             random_pick = random.randint(MIN_PICK, MAX_PICK)
         quick_picks.append(random_pick)
     quick_picks.sort()
-    print(quick_picks)
+    print("{:>2} {:>2} {:>2} {:>2} {:>2}".format(quick_picks[0], quick_picks[1], quick_picks[2], quick_picks[3],
+                                                 quick_picks[4], quick_picks[4]))
