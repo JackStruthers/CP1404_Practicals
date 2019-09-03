@@ -1,6 +1,7 @@
 word_occurrences = {}
 user_text = input("Text: ")
 split_text = user_text.split(" ")
+split_text.sort()
 
 for word in split_text:
     try:
