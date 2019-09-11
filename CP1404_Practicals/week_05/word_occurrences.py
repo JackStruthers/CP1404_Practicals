@@ -1,6 +1,6 @@
 word_occurrences = {}
-user_text = input("Text: ")
-list_of_text = user_text.split(" ")
+user_input = input("Text: ")
+list_of_text = user_input.split(" ")
 list_of_text.sort()
 
 for word in list_of_text:
