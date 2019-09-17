@@ -6,10 +6,11 @@ def main():
 
 
 def find_names_older_than_threshold(threshold):
-    names_above_threshold = []
-    for name, age in NAME_TO_AGE.items():
-        if age >= threshold:
-            names_above_threshold.append(name)
+    # names_above_threshold = []
+    # for name, age in NAME_TO_AGE.items():
+    #     if age >= threshold:
+    #         names_above_threshold.append(name)
+    names_above_threshold = [name for name, age in NAME_TO_AGE.items() if age >= threshold]
     return names_above_threshold
 
 
