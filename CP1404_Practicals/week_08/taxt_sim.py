@@ -6,7 +6,6 @@ def main():
     current_taxi = None
     bill = 0.0
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
-
     menu = "q)uit, c)hoose taxi, d)rive"
 
     user_option(bill, current_taxi, menu, taxis)
