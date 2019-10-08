@@ -12,6 +12,6 @@ class UnreliableCar(Car):
     def drive(self, distance):
         drive_chance = random.randint(0, 100)
         distance_driven = 0
-        if drive_chance >= self.reliability:
+        if drive_chance <= self.reliability:
             distance_driven = super().drive(distance)
         return distance_driven
