@@ -18,3 +18,9 @@ class Movie:
             watched_status = "watched"
         return "{}({} from {}){}".format(self.title, self.category, self.year, watched_status)
 
+    def is_true(self):
+        self.is_watched = True
+
+    def is_false(self):
+        self.is_watched = False
+
