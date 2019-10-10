@@ -27,9 +27,5 @@ def run_tests():
             movie.is_true()
         print(movie)
 
-    # TODO: Write tests to show this initialisation works
-
-    # TODO: Add more tests, as appropriate, for each method
-
 
 run_tests()
