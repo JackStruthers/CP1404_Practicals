@@ -6,8 +6,15 @@
 
 class Movie:
     """..."""
-    def __init__(self, title="", category="", year=0, is_watched=False):
+    def __init__(self, title="", year=0, category="", is_watched=False):
         self.title = title
-        self.category = category
         self.year = year
+        self.category = category
         self.is_watched = is_watched
+
+    def __str__(self):
+        watched_status = ""
+        if self.is_watched:
+            watched_status = "watched"
+        return "{}({} from {}){}".format(self.title, self.category, self.year, watched_status)
+
