@@ -28,3 +28,15 @@ class MovieCollection:
 
     def add_movie(self, movie):
         self.movies.append(movie)
+
+    def sort(self, sort_by):
+        if sort_by == "year":
+            return self.movies.sort(key=operator.attrgetter("year", "title"))
+        elif sort_by == "title":
+            return self.movies.sort(key=operator.attrgetter("title"))
+        elif sort_by == "category":
+            return self.movies.sort(key=operator.attrgetter("category", "title"))
+        elif sort_by == "unwatched":
+            return self.movies.sort(key=operator.attrgetter("is_watched", "title"))
+        elif sort_by == "watched":
+            return self.movies.sort(key=operator.attrgetter("is_watched", "title"), reverse=True)
