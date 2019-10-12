@@ -24,7 +24,7 @@ def run_tests():
         if movie.is_watched == "u":
             movie.has_not_watched()
         else:
-            movie.is_watched()
+            movie.has_been_watched()
         print(movie)
 
 

@@ -51,9 +51,13 @@ def run_tests():
     print("\nTest sorting - watched:")
     movie_collection.sort("watched")
     for line in movie_collection.movies:
-        print(line, "\n")
+        print(line,)
 
-    print(movie_collection.number_to_watch())
+    print(movie_collection.count_unwatched_movies())
+
+    print(movie_collection.count_watched_movies())
+
+    movie_collection.save_movies("movies.csv")
 
     # TODO: Add more sorting tests
 
