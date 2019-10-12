@@ -18,13 +18,14 @@ def run_tests():
     print(movie_collection)
     assert movie_collection.movies  # assuming CSV file is non-empty, non-empty list is considered True
 
-    for movie in movie_collection.movies:
-        print(movie)
+    for line in movie_collection.movies:
+        print(line)
 
-    # # Test adding a new Movie with values
-    # print("Test adding new movie:")
-    # movie_collection.add_movie(Movie("Amazing Grace", 2006, "Drama", False))
-    # print(movie_collection)
+    # Test adding a new Movie with values
+    print("Test adding new movie:")
+    movie_collection.add_movie(Movie("Amazing Grace", 2006, "Drama", False))
+    for line in movie_collection.movies:
+        print(line)
     #
     # # Test sorting movies
     # print("Test sorting - year:")
