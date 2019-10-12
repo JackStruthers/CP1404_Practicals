@@ -13,7 +13,7 @@ def run_tests():
     assert not movie_collection.movies  # an empty list is considered False
 
     # Test loading movies
-    print("Test loading movies:")
+    print("\nTest loading movies:")
     movie_collection.load_movies('movies.csv')
     print(movie_collection)
     assert movie_collection.movies  # assuming CSV file is non-empty, non-empty list is considered True
@@ -22,13 +22,13 @@ def run_tests():
         print(line)
 
     # Test adding a new Movie with values
-    print("Test adding new movie:")
+    print("\nTest adding new movie:")
     movie_collection.add_movie(Movie("Amazing Grace", 2006, "Drama", False))
     for line in movie_collection.movies:
         print(line)
 
     # Test sorting movies
-    print("Test sorting - year:")
+    print("\nTest sorting - year:")
     movie_collection.sort("year")
     for line in movie_collection.movies:
         print(line)
