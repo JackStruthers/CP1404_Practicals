@@ -22,9 +22,9 @@ def run_tests():
 
     for movie in initial_movies:
         if movie.is_watched == "u":
-            movie.is_false()
+            movie.has_not_watched()
         else:
-            movie.is_true()
+            movie.is_watched()
         print(movie)
 
 
