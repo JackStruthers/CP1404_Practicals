@@ -20,7 +20,7 @@ class MovieCollection:
                 movie = Movie(line[0], int(line[1]), line[2], line[3])
 
                 if movie.is_watched == "u":
-                    movie.is_not_watched()
+                    movie.has_not_watched()
                 else:
                     movie.has_been_watched()
 
