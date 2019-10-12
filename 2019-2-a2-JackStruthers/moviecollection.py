@@ -51,3 +51,17 @@ class MovieCollection:
                 movie.is_watched = "u"
             output_line = "{},{},{},{}\n".format(movie.title, movie.year, movie.category, movie.is_watched)
             output_file.write(output_line)
+
+    def count_unwatched_movies(self):
+        unwatched_counter = 0
+        for movie in self.movies:
+            if not movie.is_watched:
+                unwatched_counter += 1
+        return "The number of unwatched movies is {}".format(unwatched_counter)
+
+    def count_watched_movies(self):
+        watched_counter = 0
+        for movie in self.movies:
+            if movie.is_watched:
+                watched_counter += 1
+        return "The number of watched movies is {}".format(watched_counter)
