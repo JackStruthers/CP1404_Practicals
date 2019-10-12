@@ -25,3 +25,6 @@ class MovieCollection:
                     movie.has_been_watched()
 
                 self.movies.append(movie)
+
+    def add_movie(self, movie):
+        self.movies.append(movie)
