@@ -26,10 +26,32 @@ def run_tests():
     movie_collection.add_movie(Movie("Amazing Grace", 2006, "Drama", False))
     for line in movie_collection.movies:
         print(line)
-    #
-    # # Test sorting movies
-    # print("Test sorting - year:")
-    # movie_collection.sort("year")
+
+    # Test sorting movies
+    print("Test sorting - year:")
+    movie_collection.sort("year")
+    for line in movie_collection.movies:
+        print(line)
+
+    print("\nTest sorting - title:")
+    movie_collection.sort("title")
+    for line in movie_collection.movies:
+        print(line)
+
+    print("\nTest sorting - category:")
+    movie_collection.sort("category")
+    for line in movie_collection.movies:
+        print(line)
+
+    print("\nTest sorting - unwatched:")
+    movie_collection.sort("unwatched")
+    for line in movie_collection.movies:
+        print(line)
+
+    print("\nTest sorting - watched:")
+    movie_collection.sort("watched")
+    for line in movie_collection.movies:
+        print(line)
 
     # TODO: Add more sorting tests
 
