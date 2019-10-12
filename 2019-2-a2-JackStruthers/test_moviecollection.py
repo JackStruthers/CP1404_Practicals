@@ -1,6 +1,6 @@
 """(Incomplete) Tests for MovieCollection class."""
-from movie import Movie
 from moviecollection import MovieCollection
+from movie import Movie
 
 
 def run_tests():
@@ -18,15 +18,18 @@ def run_tests():
     print(movie_collection)
     assert movie_collection.movies  # assuming CSV file is non-empty, non-empty list is considered True
 
-    # Test adding a new Movie with values
-    print("Test adding new movie:")
-    movie_collection.add_movie(Movie("Amazing Grace", 2006, "Drama", False))
-    print(movie_collection)
+    for movie in movie_collection.movies:
+        print(movie)
 
-    # Test sorting movies
-    print("Test sorting - year:")
-    movie_collection.sort("year")
-    print(movie_collection)
+    # # Test adding a new Movie with values
+    # print("Test adding new movie:")
+    # movie_collection.add_movie(Movie("Amazing Grace", 2006, "Drama", False))
+    # print(movie_collection)
+    #
+    # # Test sorting movies
+    # print("Test sorting - year:")
+    # movie_collection.sort("year")
+
     # TODO: Add more sorting tests
 
     # TODO: Test saving movies (check CSV file manually to see results)
