@@ -65,3 +65,9 @@ class MovieCollection:
             if movie.is_watched:
                 watched_counter += 1
         return "The number of watched movies is {}".format(watched_counter)
+
+    def number_of_movies(self):
+        number_of_movies = 0
+        for movie in self.movies:
+            number_of_movies += 1
+        return number_of_movies
