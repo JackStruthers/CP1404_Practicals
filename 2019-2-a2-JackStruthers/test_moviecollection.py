@@ -57,6 +57,8 @@ def run_tests():
 
     print(movie_collection.count_watched_movies())
 
+    print(movie_collection.number_of_movies())
+
     movie_collection.save_movies("movies.csv")
 
     # TODO: Add more sorting tests
