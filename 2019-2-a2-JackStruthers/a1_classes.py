@@ -1,9 +1,3 @@
-"""..."""
-# TODO: Copy your first assignment to this file, then update it to use Movie class
-# Optionally, you may also use MovieCollection class
-
-from movie import Movie
-
 """
 Replace the contents of this module docstring with your own details
 Name: Jack Struthers
@@ -24,9 +18,7 @@ def main():
     print_movie_file(list_of_movies, movie_file)
     movie_details = split_movie_list(list_of_movies)
 
-    movie_details = Movie(movie_details)
-
-    #print("{} movies loaded".format(len(movie_details)))
+    print("{} movies loaded".format(len(movie_details)))
 
     menu = "Menu: \n" \
            "L - List Movies \n" \
@@ -199,4 +191,3 @@ def write_movies_to_file(movie_details):
 
 
 main()
-
