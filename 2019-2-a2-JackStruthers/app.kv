@@ -1,2 +1,16 @@
 # TODO: Create your Kivy layout in the kv language here
 BoxLayout:
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.2
+        BoxLayout:
+            Label:
+                text: 'Sort by:'
+        BoxLayout:
+            Spinner:
+                id: order_selection
+
+    BoxLayout
+        orientation: 'vertical'
+        id: entries_box
+
