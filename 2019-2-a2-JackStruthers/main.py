@@ -37,6 +37,7 @@ class MoviesToWatchApp(App):
         self.title = "Movies To Watch 2.0"
         self.root = Builder.load_file("app.kv")
         self.create_widgets()
+        self.watched_unwatched_label()
         return self.root
 
     def create_widgets(self):
@@ -49,6 +50,11 @@ class MoviesToWatchApp(App):
                                                                   watched_string), id="{}".format(movie.title))
             # temp_button.bind(on_release=self.press_entry)
             self.root.ids.entries_box.add_widget(temp_button)
+
+    def watched_unwatched_label(self):
+        watched_amount = self.movie_collection.count_watched_movies()
+        unwatched_amount = self.movie_collection.count_unwatched_movies()
+        self.root.ids.watched_unwatched.text = "To watch {}, Watched {}".format(unwatched_amount, watched_amount)
 
 
 if __name__ == '__main__':
