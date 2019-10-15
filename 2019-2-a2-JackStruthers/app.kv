@@ -10,7 +10,13 @@ BoxLayout:
             Spinner:
                 id: order_selection
 
-    BoxLayout
+    BoxLayout:
         orientation: 'vertical'
-        id: entries_box
+        Label:
+            id: watched_unwatched
+            size_hint_y: 0.1
+        BoxLayout:
+            orientation: 'vertical'
+            id: entries_box
+            text:
 
