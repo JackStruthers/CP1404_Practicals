@@ -18,6 +18,8 @@ from movie import Movie
 FILENAME = "movies.csv"
 WAYS_TO_SORT = {"Title": "title", "Year": "year", "Category": "category", "Watched": "watched",
                 "Unwatched": "unwatched"}
+WATCHED_BACKGROUND = (0.8, 0, 0.4, 1)
+UNWATCHED_BACKGROUND = (0, 0.8, 0.8, 1)
 
 
 class MoviesToWatchApp(App):
@@ -44,10 +46,13 @@ class MoviesToWatchApp(App):
         """Create buttons for every movie in the movie file"""
         for movie in self.movie_collection.movies:
             watched_string = ""
+            colour = UNWATCHED_BACKGROUND
             if movie.is_watched:
                 watched_string = "watched"
+                colour = WATCHED_BACKGROUND
             temp_button = Button(text="{} ({} from {}) {}".format(movie.title, movie.category, movie.year,
-                                                                  watched_string), id="{}".format(movie.title))
+                                                                  watched_string), id="{}".format(movie.title),
+                                 background_color=colour)
             # temp_button.bind(on_release=self.press_entry)
             self.root.ids.entries_box.add_widget(temp_button)
 
