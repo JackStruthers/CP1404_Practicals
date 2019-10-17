@@ -1,6 +1,8 @@
 """
-Jack Struthers
-Programming 2 Assignment 2
+Name: Jack Struthers
+Date: 17/10/2019
+Brief Project Description: An app that lets you mark movies as watched or not and add new movies to the list
+GitHub URL: https://github.com/cp1404-students/2019-2-a2-JackStruthers.git
 """
 
 

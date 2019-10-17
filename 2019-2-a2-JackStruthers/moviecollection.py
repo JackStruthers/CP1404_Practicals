@@ -16,6 +16,7 @@ class MovieCollection:
         self.movies = []
 
     def __str__(self):
+        """This handles how the app will print"""
         return "{}".format(self.movies)
 
     def load_movies(self, file_name):
