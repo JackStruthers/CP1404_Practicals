@@ -9,6 +9,9 @@ BoxLayout:
         BoxLayout:
             Spinner:
                 id: order_selection
+                text: app.current_sort
+                values: app.sort_options
+                on_text: app.sort_by(self.text)
 
     BoxLayout:
         orientation: 'vertical'
