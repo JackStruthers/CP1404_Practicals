@@ -44,6 +44,8 @@ class MoviesToWatchApp(App):
 
     def create_widgets(self):
         """Create buttons for every movie in the movie file"""
+        self.clear_widgets()
+
         for movie in self.movie_collection.movies:
             colour = UNWATCHED_BACKGROUND
 
@@ -68,13 +70,17 @@ class MoviesToWatchApp(App):
         if not movie.is_watched:
             self.status_text = "You have watched {}".format(movie.title)
             movie.is_watched = True
+
         else:
             self.status_text = "You need to watch {}".format(movie.title)
             movie.is_watched = False
 
+        self.create_widgets()
+
     def clear_widgets(self):
         """Clears all the dynamic buttons"""
         self.root.ids.entries_box.clear_widgets()
+
 
 if __name__ == '__main__':
     MoviesToWatchApp().run()
