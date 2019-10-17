@@ -35,9 +35,7 @@ class MovieCollection:
         self.movies.append(movie)
 
     def sort(self, sort_by):
-        if sort_by == "unwatched":
-            return self.movies.sort(key=operator.attrgetter("is_watched", "title"))
-        elif sort_by == "watched":
+        if sort_by == "watched":
             return self.movies.sort(key=operator.attrgetter("is_watched", "title"), reverse=True)
         else:
             return self.movies.sort(key=operator.attrgetter(sort_by, "title"))
