@@ -146,6 +146,10 @@ class MoviesToWatchApp(App):
         self.root.ids.category_box.text = ""
         self.root.ids.year_box.text = ""
 
+    def on_stop(self):
+        """Will save the updated list of movies to the file"""
+        self.movie_collection.save_movies(FILENAME)
+
 
 if __name__ == '__main__':
     MoviesToWatchApp().run()
