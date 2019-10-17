@@ -98,8 +98,14 @@ class MoviesToWatchApp(App):
 
         blank_check = self.no_blank_inputs(title, category, year)
 
+        valid_category_check = False
+        valid_year_check = False
+
         if blank_check:
             valid_category_check = self.valid_category(category)
+
+        if valid_category_check:
+            valid_year_check = self.valid_year(year)
 
     def no_blank_inputs(self, title, category, year):
         """Will check that no text box is left blank"""
@@ -116,6 +122,16 @@ class MoviesToWatchApp(App):
             return False
         else:
             return True
+
+    def valid_year(self, year):
+        try:
+            year = int(year)
+            if year < 0:
+                self.status_text = "You must enter a year >= 0"
+            else:
+                return True
+        except ValueError:
+            self.status_text = "Please enter a valid number"
 
 
 if __name__ == '__main__':
