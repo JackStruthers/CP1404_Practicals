@@ -25,7 +25,7 @@ UNWATCHED_BACKGROUND = (0, 0.8, 0.8, 1)
 class MoviesToWatchApp(App):
     """..."""
 
-    current_sort = StringProperty()
+    status_text = StringProperty()
     sort_movies = ListProperty()
 
     def __init__(self, **kwargs):
@@ -35,7 +35,7 @@ class MoviesToWatchApp(App):
         self.movie_collection.load_movies(FILENAME)
 
     def build(self):
-        """Build self for kiviy"""
+        """Initiate Kivy"""
         self.title = "Movies To Watch 2.0"
         self.root = Builder.load_file("app.kv")
         self.create_widgets()
@@ -45,21 +45,32 @@ class MoviesToWatchApp(App):
     def create_widgets(self):
         """Create buttons for every movie in the movie file"""
         for movie in self.movie_collection.movies:
-            watched_string = ""
             colour = UNWATCHED_BACKGROUND
+
             if movie.is_watched:
-                watched_string = "watched"
                 colour = WATCHED_BACKGROUND
-            temp_button = Button(text="{} ({} from {}) {}".format(movie.title, movie.category, movie.year,
-                                                                  watched_string), id="{}".format(movie.title),
-                                 background_color=colour)
-            # temp_button.bind(on_release=self.press_entry)
+
+            temp_button = Button(text="{}".format(movie), id="{}".format(movie.title), background_color=colour)
+            temp_button.bind(on_release=self.have_watched)
+            temp_button.movie = movie
             self.root.ids.entries_box.add_widget(temp_button)
 
     def watched_unwatched_label(self):
+        """Is used to display how many movies have been watched and how are are still needed to be watched"""
         watched_amount = self.movie_collection.count_watched_movies()
         unwatched_amount = self.movie_collection.count_unwatched_movies()
-        self.root.ids.watched_unwatched.text = "To watch {}, Watched {}".format(unwatched_amount, watched_amount)
+        self.root.ids.watched_unwatched.text = "To watch: {} Watched: {}".format(unwatched_amount, watched_amount)
+
+    def have_watched(self, instance):
+        """After clicking unwatched movie it will inform the user it is now
+         watched and do the opposite for a watched movie"""
+        movie = instance.movie
+        if not movie.is_watched:
+            self.status_text = "You have watched {}".format(movie.title)
+            movie.is_watched = True
+        else:
+            self.status_text = "You need to watch {}".format(movie.title)
+            movie.is_watched = False
 
 
 if __name__ == '__main__':
