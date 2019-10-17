@@ -72,6 +72,9 @@ class MoviesToWatchApp(App):
             self.status_text = "You need to watch {}".format(movie.title)
             movie.is_watched = False
 
+    def clear_widgets(self):
+        """Clears all the dynamic buttons"""
+        self.root.ids.entries_box.clear_widgets()
 
 if __name__ == '__main__':
     MoviesToWatchApp().run()
