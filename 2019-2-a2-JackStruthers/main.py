@@ -1,10 +1,9 @@
 """
-Name:
-Date:
-Brief Project Description:
-GitHub URL:
+Name: Jack Struthers
+Date: 17/10/2019
+Brief Project Description: An app that lets you mark movies as watched or not and add new movies to the list
+GitHub URL: https://github.com/cp1404-students/2019-2-a2-JackStruthers.git
 """
-# TODO: Create your main program in this file, using the MoviesToWatchApp class
 
 from kivy.app import App
 from kivy.lang import Builder
@@ -46,17 +45,17 @@ class MoviesToWatchApp(App):
 
     def create_widgets(self):
         """Create buttons for every movie in the movie file"""
-        self.clear_widgets()
+        self.clear_widgets()  # reset widgets each time it goes to re-add them all
 
         for movie in self.movie_collection.movies:
             colour = UNWATCHED_BACKGROUND
 
-            if movie.is_watched:
+            if movie.is_watched:  # used this to ensure the colour would be different for the movies
                 colour = WATCHED_BACKGROUND
 
             temp_button = Button(text="{}".format(movie), id="{}".format(movie.title), background_color=colour)
             temp_button.bind(on_release=self.have_watched)
-            temp_button.movie = movie
+            temp_button.movie = movie  # give the button a copy of the instance
             self.root.ids.entries_box.add_widget(temp_button)
 
     def watched_unwatched_label(self):
@@ -99,6 +98,9 @@ class MoviesToWatchApp(App):
         valid_category_check = False
         valid_year_check = False
         blank_check = self.no_blank_inputs(title, category, year)
+
+        # in order to display the correct error message I made it step through the checks and only do the next
+        # if the previous is okay
 
         if blank_check:
             valid_category_check = self.valid_category(category)
