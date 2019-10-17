@@ -77,12 +77,14 @@ class MoviesToWatchApp(App):
             movie.is_watched = False
 
         self.create_widgets()
+        self.watched_unwatched_label()
 
     def clear_widgets(self):
         """Clears all the dynamic buttons"""
         self.root.ids.entries_box.clear_widgets()
 
     def sort_by(self, sorting_key):
+        """Sorts the movies by the selected category as chosen by the user"""
         sorting_key = sorting_key.lower()
         self.movie_collection.sort(sorting_key)
         self.create_widgets()
