@@ -19,6 +19,7 @@ FILENAME = "movies.csv"
 WAYS_TO_SORT = ["Title", "Year", "Category", "Watched"]
 WATCHED_BACKGROUND = (0.8, 0, 0.4, 1)
 UNWATCHED_BACKGROUND = (0, 0.8, 0.8, 1)
+MOVIE_CATEGORIES = ["Action", "Comedy", "Documentary", "Drama", "Fantasy", "Thriller"]
 
 
 class MoviesToWatchApp(App):
@@ -88,6 +89,23 @@ class MoviesToWatchApp(App):
         sorting_key = sorting_key.lower()
         self.movie_collection.sort(sorting_key)
         self.create_widgets()
+
+    def add_new_movie(self):
+        """Will handle checking that the movie is valid"""
+        title = self.root.ids.title_box.text
+        category = self.root.ids.category_box.text
+        year = self.root.ids.year_box.text
+
+        blank_check = self.no_blank_inputs(title, category, year)
+
+    def no_blank_inputs(self, title, category, year):
+        """Will check that no text box is left blank"""
+        if title == "" or category == "" or year == "":
+            self.status_text = "All fields must be completed"
+            return False
+        else:
+            self.status_text = ""
+            return True
 
 
 if __name__ == '__main__':
