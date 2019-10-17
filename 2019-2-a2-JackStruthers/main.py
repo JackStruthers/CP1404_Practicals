@@ -40,7 +40,7 @@ class MoviesToWatchApp(App):
         """Initiate Kivy"""
         self.title = "Movies To Watch 2.0"
         self.root = Builder.load_file("app.kv")
-        self.create_widgets()
+        self.sort_by(self.current_sort)
         self.watched_unwatched_label()
         return self.root
 
