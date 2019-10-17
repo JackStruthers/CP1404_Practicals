@@ -16,14 +16,13 @@ from movie import Movie
 
 
 FILENAME = "movies.csv"
-WAYS_TO_SORT = {"Title": "title", "Year": "year", "Category": "category", "Watched": "watched",
-                "Unwatched": "unwatched"}
+WAYS_TO_SORT = ["Title", "Year", "Category", "Watched"]
 WATCHED_BACKGROUND = (0.8, 0, 0.4, 1)
 UNWATCHED_BACKGROUND = (0, 0.8, 0.8, 1)
 
 
 class MoviesToWatchApp(App):
-    """..."""
+    """This class handles running the Kivy app as well as the base functionality"""
 
     status_text = StringProperty()
     sort_movies = ListProperty()
@@ -31,6 +30,8 @@ class MoviesToWatchApp(App):
     def __init__(self, **kwargs):
         """Initiate self"""
         super().__init__(**kwargs)
+        self.sort_options = sorted(WAYS_TO_SORT)
+        self.current_sort = self.sort_options[0]
         self.movie_collection = MovieCollection()
         self.movie_collection.load_movies(FILENAME)
 
@@ -80,6 +81,11 @@ class MoviesToWatchApp(App):
     def clear_widgets(self):
         """Clears all the dynamic buttons"""
         self.root.ids.entries_box.clear_widgets()
+
+    def sort_by(self, sorting_key):
+        sorting_key = sorting_key.lower()
+        self.movie_collection.sort(sorting_key)
+        self.create_widgets()
 
 
 if __name__ == '__main__':
