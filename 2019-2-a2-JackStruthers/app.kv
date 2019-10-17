@@ -12,6 +12,36 @@ BoxLayout:
                 text: app.current_sort
                 values: app.sort_options
                 on_text: app.sort_by(self.text)
+        BoxLayout:
+            Label:
+                text: 'Add new movie...'
+        BoxLayout:
+            Label:
+                text: 'Title'
+        BoxLayout:
+            TextInput:
+                id: title_box
+        BoxLayout:
+            Label:
+                text: 'Category'
+        BoxLayout:
+            TextInput:
+                id: category_box
+        BoxLayout:
+            Label:
+                text: 'Year'
+        BoxLayout:
+            TextInput:
+                id: year_box
+        BoxLayout:
+            Button:
+                id: add_movie
+                text: 'Add movie'
+        BoxLayout:
+            Button:
+                id: clear_inputs
+                text: 'Clear'
+
 
     BoxLayout:
         orientation: 'vertical'
