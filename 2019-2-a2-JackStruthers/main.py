@@ -95,12 +95,10 @@ class MoviesToWatchApp(App):
         title = self.root.ids.title_box.text
         category = self.root.ids.category_box.text
         year = self.root.ids.year_box.text
-        new_movie = []
-
-        blank_check = self.no_blank_inputs(title, category, year)
 
         valid_category_check = False
         valid_year_check = False
+        blank_check = self.no_blank_inputs(title, category, year)
 
         if blank_check:
             valid_category_check = self.valid_category(category)
@@ -109,9 +107,10 @@ class MoviesToWatchApp(App):
             valid_year_check = self.valid_year(year)
 
         if valid_year_check:
-            new_movie = Movie(title, year, category, False)
+            new_movie = Movie(title, int(year), category, False)
             self.movie_collection.add_movie(new_movie)
             self.create_widgets()
+            self.clear_text_boxes()
 
     def no_blank_inputs(self, title, category, year):
         """Will check that no text box is left blank"""
@@ -140,6 +139,12 @@ class MoviesToWatchApp(App):
                 return True
         except ValueError:
             self.status_text = "Please enter a valid number"
+
+    def clear_text_boxes(self):
+        """This will clear the text boxes that the user enters movie data into"""
+        self.root.ids.title_box.text = ""
+        self.root.ids.category_box.text = ""
+        self.root.ids.year_box.text = ""
 
 
 if __name__ == '__main__':
