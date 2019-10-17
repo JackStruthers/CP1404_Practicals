@@ -98,6 +98,9 @@ class MoviesToWatchApp(App):
 
         blank_check = self.no_blank_inputs(title, category, year)
 
+        if blank_check:
+            valid_category_check = self.valid_category(category)
+
     def no_blank_inputs(self, title, category, year):
         """Will check that no text box is left blank"""
         if title == "" or category == "" or year == "":
@@ -105,6 +108,13 @@ class MoviesToWatchApp(App):
             return False
         else:
             self.status_text = ""
+            return True
+
+    def valid_category(self, category):
+        if category not in MOVIE_CATEGORIES:
+            self.status_text = "Category must be: {}, {}, {}, {}, {}, {}".format(*MOVIE_CATEGORIES)
+            return False
+        else:
             return True
 
 
